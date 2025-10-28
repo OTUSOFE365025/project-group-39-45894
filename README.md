@@ -1,6 +1,6 @@
-# SOFE3650F25-Project
+# Business Case/Drivers
 
-Business Case/Drivers
+
 
 Many universities commonly rely on disconnected platforms such as learning management systems (LMS), registration systems, calendars, and email to deliver academic and administrative services. The separation of these services can create inconsistent information access, communication delays, and added complexity for students, lecturers, administrators, and other roles involved in academic operations. For instance, students have to search through several systems to find answers to their concerns, while lecturers and administrators face challenges delivering timely updates and information to students. Meanwhile, maintenance teams are required to make complex decisions to keep up with growing demands for real-time performance, availability, and scalability. 
 
