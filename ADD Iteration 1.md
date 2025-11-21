@@ -69,9 +69,14 @@ The goal of this iteration is to establish an overall architecture for the AIDAP
 
 ## Step 6: Diagrams: 
 
-- Context Diagram  
-- Layer Diagram  
+- Context Diagram
+<img width="554" height="288" alt="image" src="https://github.com/user-attachments/assets/8da03e35-a0ff-4056-a1c6-03a30c8fc195" />
+
+- Layer Diagram
+<img width="603" height="701" alt="image" src="https://github.com/user-attachments/assets/7b4c2c4a-bfed-4144-8f88-195b0901b235" />
+  
 - Deployment Diagram  
+<img width="694" height="445" alt="image" src="https://github.com/user-attachments/assets/8ef00f00-f8a7-41fc-b20c-a49ea42ef2db" />
 
 ---
 
@@ -86,68 +91,4 @@ The goal of this iteration is to establish an overall architecture for the AIDAP
 | QA-1 Performance | Partially Addressed | Supports fast responses by distributing high-traffic features  into dedicated services and applying initial caching, improving responsiveness. |
 | QA-7 Consistency | Completely Addressed | Supports cross system communication by adding the DataSyncsService and ExternalSystemConnectors which manage interactions with subsystems of the platform. This ensures consistent data flow, and simplifies evolving university systems. |
 
----
-
-# Iteration 2
-
-## Step 2: Iteration Goal
-
-**Main Functionality:**
-
-- UC-1: Query Assistant  
-- UC-2 Notifications  
-- UC-3: Schedule Manager  
-- UC-7 Data Sync Services  
-
----
-
-## Step 3: Elements to Refine from Iteration 1
-
-- User Interaction Layer (presentation layer modules)  
-- Business Logic Services (application/service modules)  
-- Data Sync & Integration Layer (integration/data interface layers)  
-- System Operations Layer (operation  modules)  
-
----
-
-## Step 4: Design Concepts
-
-| **Design Decision** | **Rationale** |
-|---------------------|---------------|
-| Adopting a Layered Architecture across UI, Business Logic, Integration and Operation layers | Layered system structure provides a clear separation of concerns, which simplifies responsibilities. This supports modifiability, making sure that each major area can work independently. A monolithic design would result in an increase in coupling which would cause dependencies. |
-| Service Based Decomposition within Business Logic | Decomposing core functionality into service modules will support AIDAPS  use cases, while maintaining independence among important functional elements. |
-| External System Connectors in Integration Layer | Specialized connectors like the LMSConnector isolate system dependencies allowing for architecture to adapt to changes in external university systems. Without this there would be an increase in coupling and a decrease in modificability. |
-| Centralized System within Operations Layer | Monitoring, health checking, deployments and update management should be uniformly handled across all subsystems. A fragmented approach would result in inconsistent operational behaviour which is harder to control. |
-
----
-
-## Step 5: Instantiate Architectural Elements
-
-| **Design Decision & Location** | **Rationale** |
-|--------------------------------|---------------|
-| Make initial domain model for AIDAP | Setting a domain model early on helps identify the core concepts that are implemented across the key use cases that represent the main functionality. An initial model is created at this stage so that it can evolve in later iterations. |
-| Map the use cases to domain objects | Domain objects and key use cases are associated together to ensure that the essential responsibilities that make the system functional are represented. This prevents missing out on important behaviour. |
-| Splitting of domain objects across major architectural layers | The separation of domain objects across the UI, business logic, integration and operations layers provides clarity on which layer holds what responsibility. This establishes a structured approach to complex interfaces, preventing dependency. |
-| Identify layer specific modules with clear interfaces | The modules group the systems main responsibilities like handling queries, notifications, data syncing and system operations. Clear interfaces support independence of the system for future updates. |
-| Introduce connector abstractions for external systems | Abstracting LMS, and other subsystems into connector components isolates AIDAP from external API modifications. This lowers integration risk, maintaining stability should external systems evolve. |
-| Establish operational modules for runtime support | Defining the systems operation modules ensure the system operates smoothly and deployment activities are coordinated across all layers. This helps in prevention of fragmented operational logic. |
-
----
-
-## Step 6: 
-
-- Domain Model Diagram  
-- Sequence Diagram (Query Assistant)  
-
----
-
-## Step 7:
-
-| **Scenario** | **Status** | **Design Decision Made** |
-|-------------|------------|--------------------------|
-| UC-1 Query Assistant | Completely Addressed | QueryAssistantService was added in the business logic layer to handle student AI queries and fast responses. |
-| UC-2 Notifications | Completely Addressed | NotificationService was added to manage reminders and push notifications at smaller or larger scales. |
-| UC-3 Schedule Manager | Completely Addressed | SystemOperationsModules support system supervision tasks like runtime diagnostics, service health, deployment and any maintenance or updates that are required. |
-| UC-7 Data Sync Services | Completely Addressed | Added DataSyncService to ensure information remains constituent across each subsystem and runs properly throughout the entire platform. |
-| QA-1 Performance | Partially Addressed | Supports fast responses by distributing high-traffic features  into dedicated services and applying initial caching, improving responsiveness. |
 | QA-7 Consistency | Completely Addressed | Supports cross system communication by adding the DataSyncsService and ExternalSystemConnectors which manage interactions with subsystems of the platform. This ensures consistent data flow, and simplifies evolving university systems. |
