@@ -90,5 +90,3 @@ The goal of this iteration is to establish an overall architecture for the AIDAP
 | UC-7 Data Sync Services | Completely Addressed | Added DataSyncService to ensure information remains constituent across each subsystem and runs properly throughout the entire platform. |
 | QA-1 Performance | Partially Addressed | Supports fast responses by distributing high-traffic features  into dedicated services and applying initial caching, improving responsiveness. |
 | QA-7 Consistency | Completely Addressed | Supports cross system communication by adding the DataSyncsService and ExternalSystemConnectors which manage interactions with subsystems of the platform. This ensures consistent data flow, and simplifies evolving university systems. |
-
-| QA-7 Consistency | Completely Addressed | Supports cross system communication by adding the DataSyncsService and ExternalSystemConnectors which manage interactions with subsystems of the platform. This ensures consistent data flow, and simplifies evolving university systems. |
